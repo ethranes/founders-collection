@@ -204,6 +204,8 @@
     letter-spacing: 0.08em;
     color: var(--ink-soft);
   }
+  .front .id { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .front .qr { width: 0.8rem; height: 0.8rem; color: var(--ink); }
   .front .letter {
     font-family: var(--display);
     font-weight: 800;
@@ -305,6 +307,17 @@
   }
   .steps h3 { font-size: 1.7rem; margin: 0.4rem 0 0.6rem; }
   .steps p { margin: 0; font-size: 0.98rem; }
+
+  .rules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .rules p { margin: 0; font-size: 0.98rem; color: var(--ink-soft); max-width: 34rem; }
+  .rules strong { color: var(--ink); font-weight: 600; }
 
   /* Fact / Story / Legend */
   .fsl {
@@ -440,7 +453,7 @@
     .steps, .involve { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 560px) {
-    .steps, .involve, .fsl { grid-template-columns: minmax(0, 1fr); }
+    .steps, .involve, .fsl, .rules { grid-template-columns: minmax(0, 1fr); }
     .fsl > div + div { border-left: 0; border-top: 1px solid var(--rule); }
     .top nav { gap: 0.9rem; }
     .quad { width: min(100%, 19rem); }
@@ -464,6 +477,10 @@
       <stop offset="0" stop-color="#2F5157"/>
       <stop offset="1" stop-color="#13232A"/>
     </linearGradient>
+    <symbol id="qr" viewBox="0 0 7 7">
+      <path d="M0 0h3v3H0z M4 0h3v3H4z M0 4h3v3H0z" fill="none" stroke="currentColor" stroke-width="0.8" transform="translate(0.4 0.4) scale(0.886)"/>
+      <path d="M4 4h1v1H4z M5.5 5.5h1.5v1.5H5.5z M4 6h1v1H4z M6 4h1v1H6z" fill="currentColor"/>
+    </symbol>
     <symbol id="joined" viewBox="0 0 126 176">
       <rect width="126" height="176" fill="url(#sky)"/>
       <circle cx="63" cy="96" r="26" fill="#E9A06A"/>
@@ -481,9 +498,6 @@
         <circle cx="18" cy="22" r="0.8"/><circle cx="104" cy="16" r="0.8"/>
         <circle cx="86" cy="38" r="0.6"/><circle cx="34" cy="44" r="0.6"/>
       </g>
-      <text x="63" y="30" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="9" letter-spacing="1.5" fill="#E4EAE6">CONNECTION</text>
-      <text x="63" y="40" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="9" letter-spacing="1.5" fill="#E9A06A">COMPLETE</text>
-      <text x="63" y="164" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4.2" letter-spacing="1" fill="#E4EAE6" fill-opacity="0.8">SWANSEA • ABERTAWE</text>
     </symbol>
   </defs>
 </svg>
@@ -503,7 +517,7 @@
     <div>
       <p class="label">The Founders Collection</p>
       <h1>Everyone comes from somewhere. <em>Collect yours.</em></h1>
-      <p class="lede">A collectible card collection built around a real place. Each story is told across four cards. Collect all four, turn them over, and the backs join into one hidden image. Scan any card to read the real history behind it, then go and see where it happened.</p>
+      <p class="lede">A collectible card collection built around a real place. Each story is told across four cards. Collect all four, turn them over, and the backs join into one hidden image. Scan any card to read the real history behind it, then follow its trail around Swansea and Gower.</p>
       <div class="status"><span class="dot" aria-hidden="true"></span><span class="label" style="color:inherit">In development: first prototype underway</span></div>
     </div>
 
@@ -511,7 +525,7 @@
       <div class="quad" id="quad" aria-live="polite">
         <div class="c"><div class="c-inner">
           <div class="face front">
-            <div class="head"><span>CONNECTION</span><span class="letter">A</span></div>
+            <div class="head"><span class="id"><svg class="qr" aria-hidden="true"><use href="#qr"/></svg>CONNECTION</span><span class="letter">A</span></div>
             <div class="art"><svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="none"/><path d="M0 44 Q 15 38 30 42 T 60 40 V60 H0Z" fill="var(--sea)" opacity=".55"/><circle cx="42" cy="22" r="7" fill="var(--copper)"/></svg></div>
             <div class="foot"><span class="chapter">The Beginning</span><span class="chip fact">Fact</span></div>
           </div>
@@ -520,7 +534,7 @@
 
         <div class="c"><div class="c-inner">
           <div class="face front">
-            <div class="head"><span>CONNECTION</span><span class="letter">B</span></div>
+            <div class="head"><span class="id"><svg class="qr" aria-hidden="true"><use href="#qr"/></svg>CONNECTION</span><span class="letter">B</span></div>
             <div class="art"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M8 52 L20 20 L32 52Z M28 52 L40 28 L52 52Z" fill="var(--ink-soft)" opacity=".5"/><rect x="0" y="52" width="60" height="8" fill="var(--sea)" opacity=".55"/></svg></div>
             <div class="foot"><span class="chapter">The Turn</span><span class="chip story">Story</span></div>
           </div>
@@ -529,7 +543,7 @@
 
         <div class="c"><div class="c-inner">
           <div class="face front">
-            <div class="head"><span>CONNECTION</span><span class="letter">C</span></div>
+            <div class="head"><span class="id"><svg class="qr" aria-hidden="true"><use href="#qr"/></svg>CONNECTION</span><span class="letter">C</span></div>
             <div class="art"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M0 36 C 12 26, 22 46, 34 34 S 52 26, 60 32 V60 H0Z" fill="var(--sea)" opacity=".7"/><path d="M0 46 C 14 38, 26 54, 40 44 S 56 40, 60 42 V60 H0Z" fill="var(--ink)" opacity=".35"/></svg></div>
             <div class="foot"><span class="chapter">The Moment</span><span class="chip fact">Fact</span></div>
           </div>
@@ -538,7 +552,7 @@
 
         <div class="c"><div class="c-inner">
           <div class="face front">
-            <div class="head"><span>CONNECTION</span><span class="letter">D</span></div>
+            <div class="head"><span class="id"><svg class="qr" aria-hidden="true"><use href="#qr"/></svg>CONNECTION</span><span class="letter">D</span></div>
             <div class="art"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="14" fill="none" stroke="var(--copper)" stroke-width="2"/><circle cx="30" cy="30" r="5" fill="var(--copper)"/><path d="M30 8 V14 M30 46 V52 M8 30 H14 M46 30 H52" stroke="var(--ink-soft)" stroke-width="2"/></svg></div>
             <div class="foot"><span class="chapter">The Legacy</span><span class="chip legend">Legend</span></div>
           </div>
@@ -554,26 +568,30 @@
     <div class="wrap">
       <div class="band-head">
         <h2>Four cards. One story.</h2>
-        <p>Each major story is a <em>Connection</em>: four cards, marked A to D, that tell it chapter by chapter. The collection is meant to be completed, not endlessly chased.</p>
+        <p>Each major story is a <em>Connection</em>: four cards, marked A to D, that tell it chapter by chapter. Collect the cards. Complete the Connections. Explore the place.</p>
       </div>
       <ol class="steps">
         <li>
           <h3>Collect</h3>
-          <p>Open packs and gather the four chapters of each Connection. Every card has original artwork by local artists.</p>
+          <p>Open packs, swap your duplicates and gather the four chapters of each Connection. Every card has original artwork, and each front tells a different part of the story.</p>
         </li>
         <li>
           <h3>Connect</h3>
-          <p>Turn a finished set of four over. The backs join together to reveal a fifth image, and that image is your proof the Connection is complete.</p>
+          <p>Turn a finished set of four over. The backs are the four quarters of one continuous picture, and joining them reveals it. That picture is your proof the Connection is complete.</p>
         </li>
         <li>
           <h3>Discover</h3>
-          <p>Scan the QR code on any card to read the full story, see the sources behind it and meet the artist who drew it.</p>
+          <p>Scan the QR code on the front of any card. Its page has three parts: <strong>Story</strong> for the full history, sources and artist, <strong>Explore</strong> for where to go, and <strong>Collection</strong> for your progress.</p>
         </li>
         <li>
-          <h3>Visit</h3>
-          <p>Every story points to a safe, public place in Swansea or Gower where you can see where it happened for yourself.</p>
+          <h3>Explore</h3>
+          <p>Every Connection has its own trail around Swansea or Gower: safe public places, old photos to compare, things to spot and short quizzes, with digital stamps and badges for completing them.</p>
         </li>
       </ol>
+      <div class="rules">
+        <p><strong>You never have to travel to finish the collection.</strong> Collecting the cards and exploring the trails are tracked separately, so collectors anywhere can complete the set.</p>
+        <p><strong>No trail is ever locked behind rarity.</strong> Any card from a Connection opens its trail. You never need a rare or special card to explore the real place.</p>
+      </div>
     </div>
   </section>
 
@@ -624,22 +642,32 @@
         <li class="done">
           <span class="label when">Done</span>
           <strong>Concept and collection design</strong>
-          <p>The four-card structure, the joined backs, the digital story pages and the approach to research are all in place.</p>
+          <p>The four-card structure, the joined backs, the story trails, the Story, Explore and Collection pages and the approach to research are all in place.</p>
+        </li>
+        <li class="done">
+          <span class="label when">Done</span>
+          <strong>Business support</strong>
+          <p>We've approached Business Wales and completed and sent their Starting and Running a Business workbook.</p>
         </li>
         <li class="now">
           <span class="label when">Now</span>
           <strong>One complete prototype Connection</strong>
-          <p>Four print-quality cards, their joined back, working QR story pages and a pack mock-up.</p>
+          <p>Four print-quality cards and their joined back, a pack mock-up, working Story, Explore and Collection pages, and at least one safe real-world trail activity to go with them.</p>
         </li>
         <li>
           <span class="label when">Next</span>
           <strong>Testing with real people</strong>
-          <p>Putting the prototype in front of collectors, Swansea residents, visitors, families, retailers and heritage organisations, and listening to what they say.</p>
+          <p>Putting the prototype in front of collectors, Swansea residents, visitors, families and young people. We want to know whether they understand the Connections, whether they'd swap, and whether the trails make them want to go out and explore.</p>
         </li>
         <li>
           <span class="label when">Then</span>
+          <strong>Partners and a small first run</strong>
+          <p>Taking the prototype to Swansea artists, museums, attractions and independent shops, opening an email waiting list, and making a small first print run only if the testing supports it.</p>
+        </li>
+        <li>
+          <span class="label when">After that</span>
           <strong>A decision based on evidence</strong>
-          <p>We'll only move to a full Founders Collection if the testing shows people want it.</p>
+          <p>We'll only move to a full Founders Collection if the first run shows people want it.</p>
         </li>
       </ol>
     </div>
@@ -662,11 +690,11 @@
         </div>
         <div>
           <h3>Shops &amp; attractions</h3>
-          <p>Card shops, gift shops, visitor attractions and independent retailers who would think about stocking a small trial.</p>
+          <p>Card shops, gift shops, visitor attractions and independent retailers who would think about stocking a small trial, or about being a stop on a trail.</p>
         </div>
         <div>
           <h3>Heritage partners</h3>
-          <p>Museums, archives, historians and tourism organisations who care about getting the stories right.</p>
+          <p>Museums, archives, historians and tourism organisations who care about getting the stories right, and about helping people explore them safely.</p>
         </div>
       </div>
       <div class="contact">
@@ -678,7 +706,7 @@
 
 <footer>
   <div class="wrap row">
-    <p>Swansea • Abertawe — The Founders Collection is a working title. The final brand name hasn't been chosen yet.</p>
+    <p>Swansea • Abertawe — The Founders Collection is the first collection. Nothing is on sale yet.</p>
     <p>The card illustrations on this page are for demonstration only and are not final artwork.</p>
   </div>
 </footer>
@@ -697,7 +725,7 @@
         quad.classList.add("flipped");
         joinTimer = setTimeout(function () { quad.classList.add("joined"); }, 350);
         btn.textContent = "Turn them back";
-        caption.textContent = "The four backs join into one image: Connection complete.";
+        caption.textContent = "The four backs are quarters of one continuous picture. Joined, they complete the Connection.";
       } else {
         quad.classList.remove("joined");
         quad.classList.remove("flipped");
